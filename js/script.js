@@ -30,29 +30,31 @@ div_1.innerHTML = out_1;
 // Выведите на страницу символ 3 из массива a.
 
 let div_2 = document.querySelector('.out-2');
-let out_2 = '';
-for (let i = 0; i < a.length; i++) {
-  for (let k = 0; k < a[i].length; k++) {
-    if (a[i][k] == 3) {
-      out_2 = a[i][k];
-    }
-  }
-}
-div_2.innerHTML = out_2;
+// let out_2 = '';
+// for (let i = 0; i < a.length; i++) {
+//   for (let k = 0; k < a[i].length; k++) {
+//     if (a[i][k] == 3) {
+//       out_2 = a[i][k];
+//     }
+//   }
+// }
+// div_2.innerHTML = out_2;
+div_2.innerHTML = a[0][2];
 
 // Task 3
 // Выведите на страницу символ e из массива a.
 
 let div_3 = document.querySelector('.out-3');
-let out_3 = '';
-for (let i = 0; i < a.length; i++) {
-  for (let k = 0; k < a[i].length; k++) {
-    if (a[i][k] == 'e') {
-      out_3 = a[i][k];
-    }
-  }
-}
-div_3.innerHTML = out_3;
+// let out_3 = '';
+// for (let i = 0; i < a.length; i++) {
+//   for (let k = 0; k < a[i].length; k++) {
+//     if (a[i][k] == 'e') {
+//       out_3 = a[i][k];
+//     }
+//   }
+// }
+// div_3.innerHTML = out_3;
+div_3.innerHTML = a[3][1];
 
 // Task 4
 // Выведите на страницу содержимое третьего вложенного массива в массиве a.
@@ -152,8 +154,51 @@ div_10.innerHTML = out_10;
 // Task 11
 // Создайте массив шахматную доску. Белые - 0, черные - 1. Выведите на страницу.
 
+let arr11 = [
+  [0, 1, 0, 1, 0, 1, 0, 1],
+  [1, 0, 1, 0, 1, 0, 1, 0],
+  [0, 1, 0, 1, 0, 1, 0, 1],
+  [1, 0, 1, 0, 1, 0, 1, 0],
+  [0, 1, 0, 1, 0, 1, 0, 1],
+  [1, 0, 1, 0, 1, 0, 1, 0],
+  [0, 1, 0, 1, 0, 1, 0, 1],
+  [1, 0, 1, 0, 1, 0, 1, 0],
+];
+let div_11 = document.querySelector('.out-11');
+let out_11 = '';
+for (let i = 0; i < 8; i++) {
+  for (let k = 0; k < 8; k++) {
+    out_11 += arr11[i][k] + ' &nbsp ';
+  }
+  out_11 += '<br>';
+}
+div_11.innerHTML = out_11;
+
 // Task 12
 // Создайте массив шахматную доску. Белые - 0, черные - 1. Напишите функцию, которая выводит данный массив в виде шахматной доски - блоки div в нужном порядке, закранные цветом.
+
+function boardChess() {
+  let out_12 = document.querySelector('.out-12');
+  let board;
+  let k12 = 0;
+  for (let i = 0; i < 8; i++) {
+    for (let k = 0; k < 8; k++) {
+      board = document.createElement('div');
+      board.classList.add('cell');
+      out_12.appendChild(board);
+      if (k12 % 2 == 0) {
+        board.classList.add('white');
+        k12 += 1;
+      }
+      else {
+        board.classList.add('black');
+        k12 += 1;
+      }
+    }
+    k12 += 1
+  }
+}
+boardChess();
 
 // Task 13
 // Создайте массив, который подходит под следующие условия:
